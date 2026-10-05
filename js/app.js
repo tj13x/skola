@@ -345,19 +345,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const animDurationSec = Math.min(Math.max(1.2, distanceKm / 1500 + 1.0), 2.2);
             const animDurationMs = animDurationSec * 1000;
 
-            // Target zoom level: zoom in smoothly (level 7 for smooth overview, comfortable detail)
-            const targetZoom = 7;
+            // Target zoom level: zoom in closely (level 11)
+            const targetZoom = 11;
 
             // Animate vehicle position smoothly over duration
-            animateVehicleTo(targetLat, targetLng, animDurationMs, () => {
-                targetMarkerObj.marker.openPopup();
-            });
+            animateVehicleTo(targetLat, targetLng, animDurationMs);
+
+            // Close any active popup during animation for smooth rendering
+            map.closePopup();
 
             // Smooth Leaflet flyTo transition synchronized with duration
             map.flyTo([targetLat, targetLng], targetZoom, {
                 animate: true,
                 duration: animDurationSec,
                 easeLinearity: 0.25
+            });
+
+            // Open target stop popup once flyTo completes
+            map.once('moveend', () => {
+                if (activeStopId === stopId) {
+                    targetMarkerObj.marker.openPopup();
+                }
             });
         }
     }
