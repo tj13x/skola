@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Marker click handler
                     marker.on('click', () => {
-                        selectStop(stop.id, false);
+                        selectStop(stop.id, true);
                     });
 
                     markers.push({
@@ -328,14 +328,19 @@ document.addEventListener('DOMContentLoaded', () => {
             animateVehicleTo(targetLat, targetLng, 1400);
 
             if (panMap) {
-                map.flyTo([targetLat, targetLng], 7, {
+                map.flyTo([targetLat, targetLng], 9, {
                     duration: 1.2
                 });
                 setTimeout(() => {
                     targetMarkerObj.marker.openPopup();
                 }, 1300);
             } else {
-                targetMarkerObj.marker.openPopup();
+                map.flyTo([targetLat, targetLng], 9, {
+                    duration: 1.2
+                });
+                setTimeout(() => {
+                    targetMarkerObj.marker.openPopup();
+                }, 1300);
             }
         }
     }
