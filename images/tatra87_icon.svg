@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" width="120" height="60">
+  <defs>
+    <linearGradient id="silverBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f3f5"/>
+      <stop offset="40%" stop-color="#d1d7dc"/>
+      <stop offset="70%" stop-color="#a8b2b9"/>
+      <stop offset="100%" stop-color="#7a858d"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#cccccc"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#88c0d0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4c566a" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Aerodynamic rear dorsal fin (Ploutev Tatra 87) -->
+    <path d="M 32,23 C 25,12 18,10 14,12 C 16,18 22,23 32,23 Z" fill="#9ba5ad" stroke="#5d666d" stroke-width="0.8"/>
+
+    <!-- Main Streamlined Body -->
+    <path d="M 8,38
+             C 8,30 14,14 36,14
+             C 55,14 72,18 88,22
+             C 102,25 112,30 114,35
+             C 115,38 112,42 106,43
+             C 98,44 18,44 12,43
+             C 9,42.5 8,40 8,38 Z"
+          fill="url(#silverBody)" stroke="#4a535a" stroke-width="1.2"/>
+
+    <!-- Front Curved Fender & Hood -->
+    <path d="M 88,22 C 98,24 112,29 114,35 C 114,38 108,41 98,41 C 88,41 85,32 88,22 Z" fill="#b8c1c8" opacity="0.6"/>
+
+    <!-- Split Windshield / Side Windows -->
+    <path d="M 40,17 L 62,19 C 68,20 74,22 77,25 L 75,30 L 40,30 Z" fill="url(#glass)" stroke="#3b4252" stroke-width="0.8"/>
+    <path d="M 24,20 C 30,18 35,17 38,17 L 38,30 L 22,30 C 20,26 21,22 24,20 Z" fill="url(#glass)" stroke="#3b4252" stroke-width="0.8"/>
+
+    <!-- Window divider pillar -->
+    <line x1="39" y1="17" x2="39" y2="30" stroke="#4a535a" stroke-width="1.2"/>
+
+    <!-- 3 Headlights (Signature 3-light front of Tatra 87) -->
+    <circle cx="109" cy="33" r="3.5" fill="url(#chrome)" stroke="#333" stroke-width="0.8"/>
+    <circle cx="109" cy="33" r="2" fill="#fffde7"/>
+    <circle cx="104" cy="31" r="3" fill="url(#chrome)" stroke="#333" stroke-width="0.8"/>
+    <circle cx="104" cy="31" r="1.6" fill="#fffde7"/>
+    <circle cx="106" cy="36" r="2.8" fill="url(#chrome)" stroke="#333" stroke-width="0.8"/>
+    <circle cx="106" cy="36" r="1.4" fill="#fffde7"/>
+
+    <!-- Bumper -->
+    <path d="M 104,41 C 112,41 116,39 116,37" stroke="url(#chrome)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+
+    <!-- Rear Fender Curve -->
+    <path d="M 12,38 C 12,28 26,26 36,32 C 34,40 22,43 12,38 Z" fill="#9ba5ad" opacity="0.4"/>
+
+    <!-- Wheels with Chrome Hubcaps -->
+    <!-- Rear Wheel -->
+    <g transform="translate(26, 42)">
+      <circle cx="0" cy="0" r="8.5" fill="#1e222a"/>
+      <circle cx="0" cy="0" r="5" fill="url(#chrome)" stroke="#444" stroke-width="0.5"/>
+      <circle cx="0" cy="0" r="2" fill="#d1d7dc"/>
+    </g>
+
+    <!-- Front Wheel -->
+    <g transform="translate(90, 42)">
+      <circle cx="0" cy="0" r="8.5" fill="#1e222a"/>
+      <circle cx="0" cy="0" r="5" fill="url(#chrome)" stroke="#444" stroke-width="0.5"/>
+      <circle cx="0" cy="0" r="2" fill="#d1d7dc"/>
+    </g>
+
+    <!-- Side Chrome Moldings and Handles -->
+    <line x1="20" y1="34" x2="102" y2="36" stroke="url(#chrome)" stroke-width="1.2"/>
+    <rect x="50" y="31" width="4" height="1.2" rx="0.6" fill="url(#chrome)"/>
+    <rect x="68" y="31" width="4" height="1.2" rx="0.6" fill="url(#chrome)"/>
+  </g>
+</svg>

@@ -344,6 +344,33 @@ body {
     border-left: 1px solid var(--border-color);
 }
 
+/* Custom Vehicle Badge for Tatra T87 */
+.tatra-animated-marker {
+    background: none;
+    border: none;
+}
+
+.tatra-vehicle-badge {
+    position: relative;
+    width: 50px;
+    height: 32px;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.45));
+    transition: transform 0.2s ease;
+}
+
+.tatra-vehicle-badge:hover {
+    transform: scale(1.15);
+}
+
+.tatra-img-badge {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 4px rgba(230, 57, 70, 0.8);
+}
+
 /* Custom Leaflet Markers & Popups */
 .custom-marker {
     display: flex;

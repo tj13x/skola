@@ -47,27 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
             maxZoom: 19
         }).addTo(map);
 
-        // Custom Vehicle Marker for Tatra T87
+        // Custom Vehicle Marker using real silver Tatra T87 icon graphics
         const tatraIcon = L.divIcon({
             className: 'tatra-animated-marker',
-            html: `<div class="tatra-vehicle" style="
-                background: #e63946;
-                color: white;
-                border: 2px solid white;
-                border-radius: 50%;
-                width: 36px;
-                height: 36px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 0 10px rgba(0,0,0,0.5);
-                font-size: 16px;
-                transition: transform 0.2s ease;
-            " title="Tatra T87">
-                <i class="fa-solid fa-car-side"></i>
+            html: `<div class="tatra-vehicle-badge" title="Tatra T87 - Hanzelka & Zikmund">
+                <img src="images/tatra87_badge.png" alt="Tatra T87" class="tatra-img-badge">
             </div>`,
-            iconSize: [36, 36],
-            iconAnchor: [18, 18]
+            iconSize: [50, 32],
+            iconAnchor: [25, 16]
         });
 
         // Default initial vehicle position (Praha)
