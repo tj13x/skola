@@ -1,0 +1,2 @@
+# skola
+shit do skoly
