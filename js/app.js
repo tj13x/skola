@@ -431,11 +431,26 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
             activeExpeditionFilter = btn.getAttribute('data-expedition');
             stopTour();
+            if (animationAnimationFrameId) {
+                cancelAnimationFrame(animationAnimationFrameId);
+                animationAnimationFrameId = null;
+            }
             renderApp();
 
             // Update vehicle marker icon when filtering
             if (activeExpeditionFilter !== 'all') {
                 updateVehicleMarkerIcon(activeExpeditionFilter);
+            } else {
+                updateVehicleMarkerIcon('expedition-1');
+            }
+
+            // Reset vehicle marker position to starting stop of selected filter
+            if (visibleStops.length > 0 && vehicleMarker) {
+                currentVehiclePos = [visibleStops[0].lat, visibleStops[0].lng];
+                vehicleMarker.setLatLng(currentVehiclePos);
+                currentTourIndex = 0;
+                activeStopId = null;
+                updateTourIndicator(null);
             }
 
             // Reset map view based on filter
