@@ -56,6 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
         vehicleMarker.bindTooltip("<b>Tatra T87</b><br>Vůz Hanzelka & Zikmund", { permanent: false, direction: 'top' });
     }
 
+    // Calculate distance between two lat/lng points in km (Haversine formula)
+    function calculateDistanceKm(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Earth's radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
     // Smoothly animate Tatra vehicle from current location to target location
     function animateVehicleTo(targetLat, targetLng, durationMs = 1500, onComplete = null) {
         if (!vehicleMarker || !currentVehiclePos) return;
@@ -72,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / durationMs, 1.0);
 
-            // Smooth easeInOutQuad easing
+            // Smooth easeInOutCubic easing
             const easeProgress = progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 
             const lat = startLat + (targetLat - startLat) * easeProgress;
             const lng = startLng + (targetLng - startLng) * easeProgress;
@@ -324,24 +336,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetLat = targetMarkerObj.data.lat;
             const targetLng = targetMarkerObj.data.lng;
 
-            // Animate Tatra T87 vehicle movement
-            animateVehicleTo(targetLat, targetLng, 1400);
+            // Calculate distance to determine smooth dynamic duration
+            const distanceKm = currentVehiclePos
+                ? calculateDistanceKm(currentVehiclePos[0], currentVehiclePos[1], targetLat, targetLng)
+                : 1000;
 
-            if (panMap) {
-                map.flyTo([targetLat, targetLng], 9, {
-                    duration: 1.2
-                });
-                setTimeout(() => {
-                    targetMarkerObj.marker.openPopup();
-                }, 1300);
-            } else {
-                map.flyTo([targetLat, targetLng], 9, {
-                    duration: 1.2
-                });
-                setTimeout(() => {
-                    targetMarkerObj.marker.openPopup();
-                }, 1300);
-            }
+            // Smooth dynamic duration between 1.2s and 2.2s depending on distance
+            const animDurationSec = Math.min(Math.max(1.2, distanceKm / 1500 + 1.0), 2.2);
+            const animDurationMs = animDurationSec * 1000;
+
+            // Target zoom level: zoom in smoothly (level 7 for smooth overview, comfortable detail)
+            const targetZoom = 7;
+
+            // Animate vehicle position smoothly over duration
+            animateVehicleTo(targetLat, targetLng, animDurationMs, () => {
+                targetMarkerObj.marker.openPopup();
+            });
+
+            // Smooth Leaflet flyTo transition synchronized with duration
+            map.flyTo([targetLat, targetLng], targetZoom, {
+                animate: true,
+                duration: animDurationSec,
+                easeLinearity: 0.25
+            });
         }
     }
 
