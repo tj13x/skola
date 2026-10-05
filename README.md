@@ -57,6 +57,8 @@ npx http-server -p 8000
 │   └── app.js              # Logika mapy Leaflet, filtry, časová osa
 ├── data/
 │   └── journeys.json       # Geografická data zastávek, popisky, fotky
+├── images/
+│   └── photos/             # Historické fotografie z výprav
 ├── /home/jules/self_created_tools/
 │   └── validate_journey_data.py # Skript pro validaci formátu dat
 └── README.md               # Dokumentace
@@ -77,12 +79,25 @@ Projekt je navržen tak, aby jej bylo možné okamžitě nasadit zdarma na **Git
 ## 🗺️ Etapy trasy z Alžíru k Viktoriiným vodopádům (Tatra 87)
 
 1. Průjezd Atlasem a skalnatými kaňony v Severní Africe
+![Průjezd Atlasem](images/photos/4826375.webp)
+
 2. Průjezd Saharou a vyprošťování auta ze závějí písku
+![Průjezd Saharou](images/photos/03964138.jpeg)
+
 3. Ostrý kamenný terén a pouštní reg
+![Ostrý kamenný terén](images/photos/01-h-20-2b-20z-20-2833-29-20-285-29.jpg)
+
 4. Nocování v savaně / setkání s místními obyvateli u auta s moskytiérou
+![Nocování v savaně](images/photos/76767a2cff7f31e1bfc17319fa1e08be.jpg)
+
 5. Přebrodění řeky a kamenitého koryta v buši
+![Přebrodění řeky](images/photos/05-h-20-2b-20z-20-2833-29-20-284-29.jpg)
+
 6. Překonávání strže po provizorním dřevěném mostě z kmenů
+![Překonávání strže](images/photos/02-h-20-2b-20z-20-2833-29-20-281-29.jpg)
+
 7. Průjezd pralesem a setkání s kmenem Pygmejů ve Střední Africe
+![Průjezd pralesem](images/photos/2131012.webp)
 
 ---
 
