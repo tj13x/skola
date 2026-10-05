@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (activeExpeditionFilter === 'all' || activeExpeditionFilter === exp.id) {
                 const routeCoords = exp.stops.map(stop => [stop.lat, stop.lng]);
 
-                // Render Route Polyline
+                // Render Route Polyline (cleaner, thinner line weight when zoomed in)
                 const polyline = L.polyline(routeCoords, {
                     color: exp.color,
-                    weight: 4,
-                    opacity: 0.8,
-                    dashArray: exp.id === 'expedition-2' ? '8, 8' : null
+                    weight: 2.5,
+                    opacity: 0.75,
+                    dashArray: exp.id === 'expedition-2' ? '6, 6' : null
                 }).addTo(map);
 
                 polylines.push(polyline);
@@ -341,8 +341,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? calculateDistanceKm(currentVehiclePos[0], currentVehiclePos[1], targetLat, targetLng)
                 : 1000;
 
-            // Smooth dynamic duration between 1.2s and 2.2s depending on distance
-            const animDurationSec = Math.min(Math.max(1.2, distanceKm / 1500 + 1.0), 2.2);
+            // Slower, calmer animation duration between 3.0s and 5.0s depending on distance
+            const animDurationSec = Math.min(Math.max(3.0, distanceKm / 1000 + 2.0), 5.0);
             const animDurationMs = animDurationSec * 1000;
 
             // Target zoom level: zoom in closely (level 11)
