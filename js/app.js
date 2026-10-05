@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let markers = [];
     let polylines = [];
     let map = null;
+    let vehicleMarker = null;
+    let currentVehiclePos = null;
+    let animationAnimationFrameId = null;
     let tourPlaying = false;
     let tourInterval = null;
     let currentTourIndex = 0;
@@ -32,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextStopBtn = document.getElementById('next-stop-btn');
     const tourIndicator = document.getElementById('tour-indicator');
 
-    // Initialize Map using OpenStreetMap standard tile layer
+    // Initialize Map using OpenStreetMap standard tile layer with Czech attribution
     function initMap() {
         map = L.map('map', {
             zoomControl: true,
@@ -40,9 +43,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }).setView([20.0, 10.0], 3);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            attribution: '&copy; přispěvatelé <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             maxZoom: 19
         }).addTo(map);
+
+        // Custom Vehicle Marker for Tatra T87
+        const tatraIcon = L.divIcon({
+            className: 'tatra-animated-marker',
+            html: `<div class="tatra-vehicle" style="
+                background: #e63946;
+                color: white;
+                border: 2px solid white;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                font-size: 16px;
+                transition: transform 0.2s ease;
+            " title="Tatra T87">
+                <i class="fa-solid fa-car-side"></i>
+            </div>`,
+            iconSize: [36, 36],
+            iconAnchor: [18, 18]
+        });
+
+        // Default initial vehicle position (Praha)
+        currentVehiclePos = [50.0755, 14.4378];
+        vehicleMarker = L.marker(currentVehiclePos, { icon: tatraIcon, zIndexOffset: 1000 }).addTo(map);
+        vehicleMarker.bindTooltip("<b>Tatra T87</b><br>Vůz Hanzelka & Zikmund", { permanent: false, direction: 'top' });
+    }
+
+    // Smoothly animate Tatra vehicle from current location to target location
+    function animateVehicleTo(targetLat, targetLng, durationMs = 1500, onComplete = null) {
+        if (!vehicleMarker || !currentVehiclePos) return;
+
+        if (animationAnimationFrameId) {
+            cancelAnimationFrame(animationAnimationFrameId);
+        }
+
+        const startLat = currentVehiclePos[0];
+        const startLng = currentVehiclePos[1];
+        const startTime = performance.now();
+
+        function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / durationMs, 1.0);
+
+            // Smooth easeInOutQuad easing
+            const easeProgress = progress < 0.5
+                ? 2 * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+            const lat = startLat + (targetLat - startLat) * easeProgress;
+            const lng = startLng + (targetLng - startLng) * easeProgress;
+
+            currentVehiclePos = [lat, lng];
+            vehicleMarker.setLatLng(currentVehiclePos);
+
+            if (progress < 1.0) {
+                animationAnimationFrameId = requestAnimationFrame(step);
+            } else {
+                animationAnimationFrameId = null;
+                if (onComplete) onComplete();
+            }
+        }
+
+        animationAnimationFrameId = requestAnimationFrame(step);
     }
 
     // Load Journey Data
@@ -50,13 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('data/journeys.json');
             if (!response.ok) {
-                throw new Error('Failed to load journeys.json');
+                throw new Error('Chyba při načítání souboru data/journeys.json');
             }
             const data = await response.json();
             expeditionsData = data.expeditions || [];
             renderApp();
         } catch (error) {
-            console.error('Error loading journey data:', error);
+            console.error('Chyba při načítání dat o cestách:', error);
             stopsListEl.innerHTML = `<div style="padding:1rem; color:red;">Chyba při načítání dat o cestách: ${error.message}</div>`;
         }
     }
@@ -213,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Select Stop (Fly to location on map, open popup, highlight in sidebar)
+    // Select Stop (Fly to location on map, animate Tatra vehicle, open popup, highlight in sidebar)
     function selectStop(stopId, panMap = true) {
         activeStopId = stopId;
         const stopIndex = visibleStops.findIndex(s => s.id === stopId);
@@ -232,11 +301,17 @@ document.addEventListener('DOMContentLoaded', () => {
             activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // Pan map & open popup
+        // Pan map, animate Tatra vehicle & open popup
         const targetMarkerObj = markers.find(m => m.id === stopId);
         if (targetMarkerObj) {
+            const targetLat = targetMarkerObj.data.lat;
+            const targetLng = targetMarkerObj.data.lng;
+
+            // Animate Tatra T87 vehicle movement
+            animateVehicleTo(targetLat, targetLng, 1400);
+
             if (panMap) {
-                map.flyTo([targetMarkerObj.data.lat, targetMarkerObj.data.lng], 7, {
+                map.flyTo([targetLat, targetLng], 7, {
                     duration: 1.2
                 });
                 setTimeout(() => {
