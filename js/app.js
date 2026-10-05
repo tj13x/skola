@@ -47,19 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             maxZoom: 19
         }).addTo(map);
 
-        // Custom Vehicle Marker using real isolated silver Tatra T87 car
-        const tatraIcon = L.divIcon({
-            className: 'tatra-animated-marker',
-            html: `<div class="tatra-car-container" title="Tatra T87 - Hanzelka & Zikmund">
-                <img src="images/tatra87_car.png" alt="Tatra T87" class="tatra-car-img">
-            </div>`,
-            iconSize: [60, 30],
-            iconAnchor: [30, 15]
-        });
+        // Custom Vehicle Marker
+        const initialIcon = createVehicleIcon('expedition-1');
 
         // Default initial vehicle position (Praha)
         currentVehiclePos = [50.0755, 14.4378];
-        vehicleMarker = L.marker(currentVehiclePos, { icon: tatraIcon, zIndexOffset: 1000 }).addTo(map);
+        vehicleMarker = L.marker(currentVehiclePos, { icon: initialIcon, zIndexOffset: 1000 }).addTo(map);
         vehicleMarker.bindTooltip("<b>Tatra T87</b><br>Vůz Hanzelka & Zikmund", { permanent: false, direction: 'top' });
     }
 
@@ -269,13 +262,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Select Stop (Fly to location on map, animate Tatra vehicle, open popup, highlight in sidebar)
+    // Create vehicle icon based on expedition
+    function createVehicleIcon(expeditionId) {
+        const isExp2 = (expeditionId === 'expedition-2');
+        const imgSrc = isExp2 ? 'images/tatra805_car.png' : 'images/tatra87_car.png';
+        const titleText = isExp2 ? 'Tatra 805 - Hanzelka & Zikmund' : 'Tatra T87 - Hanzelka & Zikmund';
+        const iconWidth = isExp2 ? 55 : 60;
+        const iconHeight = isExp2 ? 45 : 30;
+
+        return L.divIcon({
+            className: 'tatra-animated-marker',
+            html: `<div class="tatra-car-container" style="width:${iconWidth}px; height:${iconHeight}px;" title="${titleText}">
+                <img src="${imgSrc}" alt="${titleText}" class="tatra-car-img">
+            </div>`,
+            iconSize: [iconWidth, iconHeight],
+            iconAnchor: [iconWidth / 2, iconHeight / 2]
+        });
+    }
+
+    // Update vehicle marker icon and tooltip depending on expedition
+    function updateVehicleMarkerIcon(expeditionId) {
+        if (!vehicleMarker) return;
+        const isExp2 = (expeditionId === 'expedition-2');
+        const newIcon = createVehicleIcon(expeditionId);
+        vehicleMarker.setIcon(newIcon);
+
+        const tooltipContent = isExp2
+            ? "<b>Tatra 805</b><br>Vůz Hanzelka & Zikmund"
+            : "<b>Tatra T87</b><br>Vůz Hanzelka & Zikmund";
+        vehicleMarker.unbindTooltip();
+        vehicleMarker.bindTooltip(tooltipContent, { permanent: false, direction: 'top' });
+    }
+
+    // Select Stop (Fly to location on map, animate vehicle, open popup, highlight in sidebar)
     function selectStop(stopId, panMap = true) {
         activeStopId = stopId;
         const stopIndex = visibleStops.findIndex(s => s.id === stopId);
         if (stopIndex !== -1) {
+            const currentStop = visibleStops[stopIndex];
             currentTourIndex = stopIndex;
-            updateTourIndicator(visibleStops[stopIndex]);
+            updateTourIndicator(currentStop);
+
+            if (currentStop.expeditionId) {
+                updateVehicleMarkerIcon(currentStop.expeditionId);
+            }
         }
 
         // Highlight in sidebar
@@ -402,6 +432,11 @@ document.addEventListener('DOMContentLoaded', () => {
             activeExpeditionFilter = btn.getAttribute('data-expedition');
             stopTour();
             renderApp();
+
+            // Update vehicle marker icon when filtering
+            if (activeExpeditionFilter !== 'all') {
+                updateVehicleMarkerIcon(activeExpeditionFilter);
+            }
 
             // Reset map view based on filter
             if (activeExpeditionFilter === 'all') {
