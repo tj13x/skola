@@ -1,9 +1,10 @@
 # Node dependencies
 node_modules/
 
-# Verification screenshots
-*.png
+# Verification outputs
 /home/jules/verification/
+screenshot*.png
+verification_*.png
 
 # OS generated files
 .DS_Store
