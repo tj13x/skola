@@ -87,23 +87,23 @@ Projekt je navržen tak, aby jej bylo možné okamžitě nasadit zdarma na **Git
 2. **Průjezd Saharou a vyprošťování auta ze závějí písku**
 ![Průjezd Saharou](images/photos/03964138.jpeg)
 
+- **Káhira a Gíza (Egypt)**
+![Káhira a Gíza](images/photos/kdo-byli-zikmund-a-hanzelka3-770x578-2032416904.jpg)
+
 3. **Ostrý kamenný terén a pouštní reg**
-![Ostrý kamenný terén](images/photos/01-h-20-2b-20z-20-2833-29-20-285-29.jpg)
+![Ostrý kamenný terén](images/photos/76767a2cff7f31e1bfc17319fa1e08be.jpg)
 
 4. **Nocování v savaně / setkání s místními obyvateli u auta s moskytiérou**
-![Nocování v savaně](images/photos/76767a2cff7f31e1bfc17319fa1e08be.jpg)
+![Nocování v savaně](images/photos/05-h-20-2b-20z-20-2833-29-20-284-29.jpg)
 
 5. **Přebrodění řeky a kamenitého koryta v buši**
-![Přebrodění řeky](images/photos/05-h-20-2b-20z-20-2833-29-20-284-29.jpg)
+![Přebrodění řeky](images/photos/02-h-20-2b-20z-20-2833-29-20-281-29.jpg)
 
-6. **Překonávání strže po provizorním dřevěném mostě z kmenů**
-![Překonávání strže](images/photos/02-h-20-2b-20z-20-2833-29-20-281-29.jpg)
-
-7. **Průjezd pralesem a setkání s kmenem Pygmejů ve Střední Africe**
+6. **Průjezd pralesem a setkání s kmenem Pygmejů ve Střední Africe**
 ![Průjezd pralesem](images/photos/2131012.webp)
 
 - **Kapské Město (Jihoafrická republika)**
-![Kapské Město](images/photos/kdo-byli-zikmund-a-hanzelka3-770x578-2032416904.jpg)
+![Kapské Město](images/photos/01-h-20-2b-20z-20-2833-29-20-285-29.jpg)
 
 ---
 
