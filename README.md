@@ -107,6 +107,37 @@ Projekt je navržen tak, aby jej bylo možné okamžitě nasadit zdarma na **Git
 
 ---
 
+## 🗺️ Přidané fotografie ke zastávkám v Jižní a Střední Americe (Tatra 87)
+
+- **Rio de Janeiro (Brazílie)**
+![Rio de Janeiro](images/photos/titul-1.jpg)
+
+- **Buenos Aires (Argentina)**
+![Buenos Aires](images/photos/1a.jpg)
+
+- **San Carlos de Bariloche (Argentina)**
+![San Carlos de Bariloche](images/photos/MBB558cd5_hz6.jpg)
+
+- **Santiago de Chile (Chile)**
+![Santiago de Chile](images/photos/a696f4a4259c35aea95a3e73e49c7244_resize=680,540_.jpg)
+
+- **La Paz a Jezero Titicaca (Bolívie)**
+![La Paz a Jezero Titicaca](images/photos/109a.jpg)
+
+- **Machu Picchu a Lima (Peru)**
+![Machu Picchu a Lima](images/photos/kniha-Zikmund-HAnzelka-Pr%CC%86es-Kordillery-6.jpg)
+
+- **Quito (Ekvádor)**
+![Quito](images/photos/113a.jpg)
+
+- **Bogota (Kolumbie)**
+![Bogota](images/photos/anzelka_zikmund_profimedia-0157444413_oqjharg.jpg)
+
+- **Panama City (Panama)**
+![Panama City](images/photos/hanzelka-a-zikmund_photo-_c_-muzeum-jihovychodni-moravy-ve-zline--archiv-h-z..webp)
+
+---
+
 ## 📷 Licenční informace k fotografiím
 
 Použité fotografie pocházejí z volně přístupných zdrojů Wikimedia Commons v souladu s licencemi Creative Commons a Public Domain.
