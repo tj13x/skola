@@ -435,8 +435,8 @@
           "description": "Cesta starobylým Blízkým východem, dokumentování arabské kultury a historických památek.",
           "photos": [
             {
-              "url": "images/photos/exp2-3_0.jpg",
-              "caption": "Dobová archívní fotografie: Damašek (Sýrie) – Červenec 1959",
+              "url": "images/photos/exp2-3_damasek.jpg",
+              "caption": "Damašek (Sýrie) – Průjezd Blízkým východem s vozem Tatra 805",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -452,8 +452,8 @@
           "description": "Průjezd Mezopotámií podél řek Tigris a Eufrat v náročném pouštním klimatu.",
           "photos": [
             {
-              "url": "images/photos/exp2-4_0.jpg",
-              "caption": "Dobová archívní fotografie: Bagdád (Írák) – Září 1959",
+              "url": "images/photos/exp2-4_bagdad.jpg",
+              "caption": "Expediční speciál Tatra 805 při cestě Írákem a pouštními oblastmi Blízkého východu",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -469,7 +469,7 @@
           "description": "Putování po Íránské vysočině, návštěva historických měst Isfahán a Persepolis.",
           "photos": [
             {
-              "url": "images/photos/WOJ798b1f_HZ_Asie2.jpg",
+              "url": "images/photos/exp2-5_teheran.jpg",
               "caption": "Dvě expediční Tatry 805 s obytnými přívěsy při cestě horským terénem v Asii",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
@@ -486,8 +486,8 @@
           "description": "Příjezd na indický subkontinent přes balúčistánskou poušť.",
           "photos": [
             {
-              "url": "images/photos/exp2-6_0.jpg",
-              "caption": "Dobová archívní fotografie: Karáčí (Pákistán) – Únor 1960",
+              "url": "images/photos/exp2-6_karaci.jpg",
+              "caption": "Dokumentace z cestního deníku a trasy expedice přes Pákistán a Jižní Asii",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -503,7 +503,7 @@
           "description": "Fascinující putování po Indii, dokumentování života v indických městech a návštěva Tádž Mahalu.",
           "photos": [
             {
-              "url": "images/photos/SOT4053bc_z_h2.jpg.jpeg",
+              "url": "images/photos/exp2-7_dilli.jpg",
               "caption": "Jiří Hanzelka a Miroslav Zikmund během asijské části expedice",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
@@ -520,8 +520,8 @@
           "description": "Plavba trajektem na ostrov Cejlon, natáčení dokumentárních filmů a fotografování sběru čaje.",
           "photos": [
             {
-              "url": "images/photos/exp2-8_0.jpg",
-              "caption": "Dobová archívní fotografie: Kolombo (Cejlon (Srí Lanka)) – Říjen 1960",
+              "url": "images/photos/exp2-8_kolombo.jpg",
+              "caption": "Putování Hanzelky a Zikmunda v tropech Jižní Asie",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -537,8 +537,8 @@
           "description": "Návštěva Pagody Švedagon a zkoumání tradiční barmské kultury.",
           "photos": [
             {
-              "url": "images/photos/exp2-9_0.jpg",
-              "caption": "Dobová archívní fotografie: Rangún (Barma (Myanmar)) – Březen 1961",
+              "url": "images/photos/exp2-9_rangun.jpg",
+              "caption": "Jiří Hanzelka a Miroslav Zikmund při fotografické práci v Jihovýchodní Asii",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -554,8 +554,8 @@
           "description": "Průjezd Thajským královstvím, plovoucí trhy a buddhistické chrámy.",
           "photos": [
             {
-              "url": "images/photos/exp2-10_0.jpg",
-              "caption": "Dobová archívní fotografie: Bangkok (Thajsko) – Červenec 1961",
+              "url": "images/photos/exp2-10_bangkok.webp",
+              "caption": "Speciál Tatra 805 na cestě po Thajsku a Jihovýchodní Asii",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -571,8 +571,8 @@
           "description": "Mnoho měsíců strávených na indonéských ostrovech Jáva, Sumatra a Bali. Vznik obsáhlých publikací a rozhlasových relací.",
           "photos": [
             {
-              "url": "images/photos/exp2-11_0.jpg",
-              "caption": "Dobová archívní fotografie: Džakarta a Bali (Indonésie) – Prosinec 1961",
+              "url": "images/photos/exp2-11_indonesie.webp",
+              "caption": "Hanzelka a Zikmund na indonéských ostrovech Jáva a Bali",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -588,8 +588,8 @@
           "description": "Plavba do Japonska. Dokumentace modernizujícího se Japonska, tradičního divadla Kabuki i přírodních krás u hory Fudži.",
           "photos": [
             {
-              "url": "images/photos/exp2-12_0.jpg",
-              "caption": "Dobová archívní fotografie: Tokio a Kjóto (Japonsko) – Červen 1963",
+              "url": "images/photos/exp2-12_tokio.jpg",
+              "caption": "Jiří Hanzelka a Miroslav Zikmund s vozem Tatra 805 v Japonsku",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -605,8 +605,8 @@
           "description": "Příjezd lodí z Japonska do Sovětského svazu a zahájení nejdelší pozemní fáze napříč Sibiří.",
           "photos": [
             {
-              "url": "images/photos/exp2-13_0.jpg",
-              "caption": "Dobová archívní fotografie: Vladivostok (Sovětský svaz) – Říjen 1963",
+              "url": "images/photos/exp2-13_vladivostok.jpg",
+              "caption": "Příjezd Tatry 805 do přístavu Vladivostok v Sovětském svazu",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -622,8 +622,8 @@
           "description": "Extrémní zimní podmínky na Sibiři u nezamrzajících i zamrzlých břehů jezera Bajkal. Tatry 805 obstály v mrazech pod -40 °C.",
           "photos": [
             {
-              "url": "images/photos/tatra-805.jpeg",
-              "caption": "Tatra 805 v zasněžené sibiřské krajině při expedici napříč Sovětským svazem",
+              "url": "images/photos/exp2-14_bajkal.jpeg",
+              "caption": "Tatra 805 v zasněžené sibiřské krajině u jezera Bajkal",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
@@ -639,8 +639,8 @@
           "description": "Průjezd Uralským pohořím do Moskvy. Příprava tajné Zvláštní zprávy č. 4 o stavu Sovětského svazu.",
           "photos": [
             {
-              "url": "images/photos/exp2-15_0.jpg",
-              "caption": "Dobová archívní fotografie: Moskva (Sovětský svaz) – Září 1964",
+              "url": "images/photos/exp2-15_moskva.png",
+              "caption": "Moskva (Sovětský svaz) – Slavnostní příjezd expedice Hanzelky a Zikmunda do Moskvy",
               "credit": "Muzeum jihovýchodní Moravy ve Zlíně / Archiv Hanzelky a Zikmunda"
             }
           ],
